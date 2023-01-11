@@ -2,8 +2,10 @@ package com.example.springboot.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import org.springframework.stereotype.Repository;
 import com.example.springboot.model.User;
+
 import java.util.List;
 
 @Repository
@@ -19,22 +21,22 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void save(User user) {
+    public void saveUser(User user) {
         entityManager.persist(user);
     }
 
     @Override
-    public void update(User user) {
+    public void updateUser(User user) {
         entityManager.merge(user);
     }
 
     @Override
-    public void delete(User user) {
-        entityManager.remove(entityManager.contains(user) ? user : entityManager.merge(user));
+    public void deleteUserById(Long id) {
+        entityManager.remove(getUserById(id));
     }
 
     @Override
-    public User getUserById(long id) {
+    public User getUserById(Long id) {
         return entityManager.find(User.class, id);
     }
 }

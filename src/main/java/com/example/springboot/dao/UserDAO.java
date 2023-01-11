@@ -1,19 +1,18 @@
 package com.example.springboot.dao;
 
 
-
 import com.example.springboot.model.User;
 
 import java.util.List;
 
 public interface UserDAO {
-    public List<User> getAllUsers();
+    List<User> getAllUsers();
 
-    void save(User user);
+    void saveUser(User user);
 
-    void update(User user);
+    void updateUser(User user);
 
-    void delete(User user);
+    void deleteUserById(Long id);
 
-    User getUserById(long id);
+    User getUserById(Long id);
 }
